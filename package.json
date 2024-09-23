@@ -1,0 +1,48 @@
+{
+  "name": "lora-profile",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "rm -rf .next && next build",
+    "dev": "next dev",
+    "frog": "frog dev",
+    "lint": "next lint --dir . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "https://warpcast.com/sweetman-eth",
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@vercel/analytics": "^1.2.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.427.0",
+    "next": "^14.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^20.11.8",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  }
+}
