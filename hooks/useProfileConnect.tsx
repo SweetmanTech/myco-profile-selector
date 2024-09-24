@@ -23,7 +23,7 @@ const useProfileConnect = () => {
         throw new Error(`Error: ${response.status}`)
       }
 
-      const data = await response.json()
+      await response.json()
     } catch (error) {
       console.error('Error connnect profile:', error)
     }
