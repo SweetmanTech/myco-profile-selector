@@ -1,5 +1,4 @@
 import { Avatar, AvatarImage } from '../ui/Avatar'
-import { Badge } from '../ui/Badge'
 
 const SearchResults = ({ results }) => (
   <div className="absolute w-full mt-2 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden border border-black">
