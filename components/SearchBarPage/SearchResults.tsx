@@ -1,5 +1,6 @@
 import useProfileConnect from '@/hooks/useProfileConnect'
 import { Avatar, AvatarImage } from '../ui/Avatar'
+import getZoraPfpLink from '@/lib/getZoraPfpLink'
 
 const SearchResults = ({ results }) => {
   const { handleConnect, connecting } = useProfileConnect()
@@ -9,7 +10,7 @@ const SearchResults = ({ results }) => {
       {results.map((result) => (
         <div key={result.profileId} className="flex items-center p-2">
           <Avatar className="w-10 h-10 mr-3">
-            <AvatarImage src={result.avatar} />
+            <AvatarImage src={getZoraPfpLink(result.avatar)} />
           </Avatar>
           <div className="flex-grow text-left">
             <div className="text-sm font-medium text-black">

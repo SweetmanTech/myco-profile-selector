@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import useConnectSmartWallet from './useConnectSmartWallet'
 import { useAccount } from 'wagmi'
+import getZoraPfpLink from '@/lib/getZoraPfpLink'
 
 const useProfileConnect = () => {
   const [connecting, setConnecting] = useState(false)
@@ -18,7 +19,7 @@ const useProfileConnect = () => {
     const params = new URLSearchParams()
     params.append('address', address)
     params.append('username', result.displayName || result.username || result.ensName)
-    params.append('pfp', result.avatar || '')
+    params.append('pfp', getZoraPfpLink(result.avatar) || '')
     params.append(
       'zora',
       `https://zora.co/@${result.displayName || result.username || result.ensName}`,
