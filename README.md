@@ -3,7 +3,6 @@
 A lightweight, customizable React component for Zora profile search integration.
 <img width="1440" alt="Screenshot 2024-09-15 at 9 41 09 AM" src="https://github.com/user-attachments/assets/5c813bf4-7377-4aa3-85b5-50d2a12418b7">
 
-
 ## Overview
 
 Lora Search Profile is a powerful and flexible React application that allows developers to quickly implement a user-friendly profile search functionality for Zora. It's designed to be easily integrated into existing Next.js projects and provides a seamless way to search and display Zora user profiles.
