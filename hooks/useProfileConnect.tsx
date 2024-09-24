@@ -1,14 +1,22 @@
 import handleTxError from '@/lib/handleTxError'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import useConnectSmartWallet from './useConnectSmartWallet'
+import { useAccount } from 'wagmi'
 
 const useProfileConnect = () => {
   const [connecting, setConnecting] = useState(false)
+  const { connect } = useConnectSmartWallet()
+  const { address } = useAccount()
 
   const handleConnect = async (result: any) => {
+    if (!address) {
+      connect()
+      return
+    }
     setConnecting(true)
     const params = new URLSearchParams()
-    params.append('address', result.address)
+    params.append('address', address)
     params.append('username', result.displayName || result.username || result.ensName)
     params.append('pfp', result.avatar || '')
     params.append(
