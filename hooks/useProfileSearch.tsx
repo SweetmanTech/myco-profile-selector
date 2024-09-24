@@ -16,7 +16,13 @@ const useProfileSearch = () => {
         }
 
         const data = await response.json()
-        setResults([data.zoraProfile])
+        setResults([
+          {
+            ...data.zoraProfile,
+            isPro: data.isPro,
+            connectedZoraProfile: data.connectedZoraProfile,
+          },
+        ])
       } catch (error) {
         console.error('Error fetching profile:', error)
         setResults([])
