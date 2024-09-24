@@ -1,6 +1,5 @@
 import { Avatar, AvatarImage } from '../ui/Avatar'
 import { Badge } from '../ui/Badge'
-import SocialBadges from './SocialBadges'
 
 const SearchResults = ({ results }) => (
   <div className="absolute w-full mt-2 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden border border-black">
@@ -14,11 +13,10 @@ const SearchResults = ({ results }) => (
             {result.displayName || result.username || result.ensName || 'Unknown User'}
           </div>
           <div className="text-xs text-gray-600">{result.description}</div>
-          <SocialBadges result={result} />
         </div>
-        <Badge variant="secondary" className="ml-2 text-black">
-          {result.type}
-        </Badge>
+        <button type="button" className="bg-black text-white rounded-md px-3 py-2">
+          Connect Profile
+        </button>
       </div>
     ))}
   </div>
