@@ -1,4 +1,6 @@
+import handleTxError from '@/lib/handleTxError'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const useProfileConnect = () => {
   const [connecting, setConnecting] = useState(false)
@@ -24,8 +26,11 @@ const useProfileConnect = () => {
       }
 
       await response.json()
+
+      toast.success('Connected!')
     } catch (error) {
       console.error('Error connnect profile:', error)
+      handleTxError(error)
     }
 
     setConnecting(false)
