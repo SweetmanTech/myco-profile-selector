@@ -15,10 +15,9 @@ const handleTxError = (error: any) => {
   const primaryError = error?.reason || error?.data?.message
   const nestedError = error?.error?.message
   const fallbackError = error.message
-  let customToastMessage
 
   const matchedError = errorMessages.find(({ error }) => primaryError?.includes(error))
-  customToastMessage = matchedError?.solution
+  const customToastMessage = matchedError?.solution
 
   const toastMessage = customToastMessage || primaryError || nestedError || fallbackError
   toast.error(toastMessage)
