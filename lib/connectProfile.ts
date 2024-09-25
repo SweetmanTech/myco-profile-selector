@@ -1,9 +1,9 @@
-const connectProfile = async (address, username, pfp) => {
+const connectProfile = async (address, username, pfp, zoraAddress) => {
   const params = new URLSearchParams()
   params.append('address', address)
   params.append('username', username)
   params.append('pfp', pfp)
-  params.append('zora', `https://zora.co/@${username}`)
+  params.append('zora', `https://zora.co/@${zoraAddress}`)
 
   try {
     const response = await fetch(`/api/profile/connect?${params.toString()}`, {

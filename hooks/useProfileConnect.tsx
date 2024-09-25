@@ -17,10 +17,11 @@ const useProfileConnect = () => {
       return
     }
     setConnecting(true)
-    const response: any = connectProfile(
+    const response: any = await connectProfile(
       address,
       result.displayName || result.username || result.ensName,
       getZoraPfpLink(result.avatar),
+      result.address,
     )
     if (response.error) {
       handleTxError(response.error)
