@@ -1,33 +1,33 @@
+import handleTxError from '@/lib/handleTxError'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import useConnectSmartWallet from './useConnectSmartWallet'
+import { useAccount } from 'wagmi'
+import getZoraPfpLink from '@/lib/getZoraPfpLink'
+import connectProfile from '@/lib/connectProfile'
 
 const useProfileConnect = () => {
   const [connecting, setConnecting] = useState(false)
+  const { connect } = useConnectSmartWallet()
+  const { address } = useAccount()
 
   const handleConnect = async (result: any) => {
-    setConnecting(true)
-    const params = new URLSearchParams()
-    params.append('address', result.address)
-    params.append('username', result.displayName || result.username || result.ensName)
-    params.append('pfp', result.avatar || '')
-    params.append(
-      'zora',
-      `https://zora.co/@${result.displayName || result.username || result.ensName}`,
-    )
-
-    try {
-      const response = await fetch(`/api/profile/connect?${params.toString()}`, {
-        method: 'GET',
-      })
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`)
-      }
-
-      await response.json()
-    } catch (error) {
-      console.error('Error connnect profile:', error)
+    if (!address) {
+      connect()
+      return
     }
-
+    setConnecting(true)
+    const response: any = connectProfile(
+      address,
+      result.displayName || result.username || result.ensName,
+      getZoraPfpLink(result.avatar),
+    )
+    if (response.error) {
+      handleTxError(response.error)
+      setConnecting(false)
+      return
+    }
+    toast.success('Connected!')
     setConnecting(false)
   }
 
