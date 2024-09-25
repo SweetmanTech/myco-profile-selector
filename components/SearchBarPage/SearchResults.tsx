@@ -22,9 +22,11 @@ const SearchResults = ({ results }) => {
             type="button"
             className="bg-black text-white rounded-md px-3 py-2"
             onClick={() => handleConnect(result)}
-            disabled={connecting}
+            disabled={connecting || result.connectedZoraProfile}
           >
-            {connecting ? 'Connecting' : 'Connect Profile'}
+            {result.connectedZoraProfile
+              ? 'Connected'
+              : (connecting && 'Connecting') || 'Connect Profile'}
           </button>
         </div>
       ))}
